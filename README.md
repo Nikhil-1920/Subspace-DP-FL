@@ -334,4 +334,6 @@ We welcome contributions! Areas of interest:
 
 ---
 
-**Questions?** Open an issue or reach out to [Nikhil Singh]!
+## 💬 Questions?
+
+Open an issue or reach out to **Nikhil Singh** 👨‍💻 from the Bias Busters team! 🚀
