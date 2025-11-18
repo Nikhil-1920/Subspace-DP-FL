@@ -71,7 +71,8 @@ Federated learning gradients are **highly anisotropic**: most signal concentrate
 ```bash
 # Create virtual environment
 python3 -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+# Windows: venv\Scripts\activate
+source venv/bin/activate  
 
 # Install dependencies
 pip install --upgrade pip
@@ -93,25 +94,26 @@ All experiments are configured via YAML files in `configs/`.
 ### 1. CIFAR-10 Baseline (Head-Only FedAvg)
 
 ```bash
-python3 scripts/run_experiment.py --config configs/cifar10_mobilenet_headonly.yaml
+python3 scripts/run_experiment.py --config configs/cifar10_baseline.yaml
 ```
 
 **What it does:**
 - Central warm-start on pooled data
 - Head-only FedAvg (fine-tune final layers only)
 - Non-IID partitioning via Dirichlet(α)
-- Saves results to `results/cifar10_mobilenet_headonly_<timestamp>/`
+- Saves results to `results/cifar10_mobilenet_baseline_<timestamp>/`
 
 **Key config parameters:**
 ```yaml
-experiment_name: cifar10_mobilenet_headonly
+experiment_name: cifar10_mobilenet_baseline
 task: cifar10
 model: mobilenet_v2
 num_clients: 10
 clients_per_round_q: 1.0
 local_steps: 1
 rounds: 20
-alpha_dirichlet: 10.0  # Non-IID intensity
+# Non-IID intensity
+alpha_dirichlet: 10.0  
 ```
 
 ### 2. EMNIST Character Recognition
@@ -125,21 +127,10 @@ python3 scripts/run_experiment.py --config configs/emnist.yaml
 - Group fairness metrics (digits vs. letters)
 - Highly non-IID with α=0.5
 
-### 3. MovieLens-1M Recommendations
+### 3. Full Subspace-DP-FL (Geometry-Aligned DP)
 
 ```bash
-python3 scripts/run_experiment.py --config configs/movielens_ncf.yaml
-```
-
-**Features:**
-- Neural Collaborative Filtering (NCF)
-- Per-user personalized datasets
-- AUC-based evaluation
-
-### 4. Full Subspace-DP-FL (Geometry-Aligned DP)
-
-```bash
-python3 scripts/run_experiment.py --config configs/cifar10_subspace_dp.yaml
+python3 scripts/run_experiment.py --config configs/cifar10_resnet18.yaml
 ```
 
 **Advanced features:**
