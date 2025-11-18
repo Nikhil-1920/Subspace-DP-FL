@@ -1,0 +1,28 @@
+# In configs/cifar10_simple.yaml
+
+experiment_name: cifar10_mobilenet_smoketest
+task: cifar10
+model: resnet18
+
+# Keep other parameters the same or similar
+num_clients: 100
+clients_per_round_q: 0.1
+local_steps: 1
+batch_size: 64      # You can likely use a larger batch size with this model
+rounds: 50
+eval_every: 5
+epsilon: 8.0
+delta_exp: 1.1
+C: 1.0
+tau: 1e-3
+rank_k: 8
+trace_budget_B_per_d: 1.5
+pmu_every: 20
+pmu_sigma_sum: 0.5
+pmu_C_S: 2.0
+a: 0.2
+b: 1.0
+alpha_dirichlet: 0.3
+seed: 42
+fairness:
+  enabled: false

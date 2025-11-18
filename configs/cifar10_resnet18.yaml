@@ -1,0 +1,43 @@
+experiment_name: cifar10_resnet18_anisotropic
+task: cifar10
+model: resnet18 # <-- Back to using the powerful ResNet-18 model
+
+# ===== Federated setup (kept / adapted from your head-only config) =====
+num_clients: 10
+clients_per_round_q: 1.0     # all clients per round (strongest signal)
+local_steps: 2
+rounds: 30                    # slightly more than 30 for better convergence
+eval_every: 3
+
+batch_size: 128
+alpha_dirichlet: 10.0         # almost IID → easier with DP + anisotropic
+seed: 42
+
+# ===== Optimizer (kept, but LR made sane for DP) =====
+lr: 0.05                      # 0.30 is too aggressive for DP + anisotropic
+momentum: 0.9
+weight_decay: 5e-4
+
+# ===== Central warm-start (kept from your head-only idea) =====
+warmstart_central_epochs: 5
+warmstart_batch_size: 256
+
+# ===== DP / Anisotropic geometry =====
+epsilon: 8.0
+delta_exp: 2.0                # stricter than 1.1; gives smaller δ
+C: 1.5                        # clipping norm
+
+tau: 1e-3
+rank_k: 32
+trace_budget_B_per_d: 1.5
+
+# ===== PMU / Sketch params =====
+pmu_every: 20
+pmu_sigma_sum: 0.5
+pmu_C_S: 2.0
+a: 0.2
+b: 1.0
+
+# ===== Fairness block (can stay off for now) =====
+fairness:
+  enabled: false

@@ -1,0 +1,25 @@
+experiment_name: cifar10_fairness
+task: cifar10
+num_clients: 10
+clients_per_round_q: 0.1
+local_steps: 1
+batch_size: 128
+model: resnet18
+rounds: 30
+eval_every: 3
+epsilon: 8.0
+delta_exp: 1.1
+C: 1.0
+tau: 1e-3
+rank_k: 32
+trace_budget_B_per_d: 1.5
+pmu_every: 20
+pmu_sigma_sum: 0.5
+pmu_C_S: 2.0
+a: 0.2
+b: 1.0
+alpha_dirichlet: 0.3
+seed: 42
+fairness:
+  enabled: true
+  num_groups: 2 # e.g., classes {0-4} vs {5-9}

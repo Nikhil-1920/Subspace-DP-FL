@@ -1,0 +1,33 @@
+experiment_name: movielens_anisotropic
+task: movielens
+num_clients: 10
+clients_per_round_q: 0.05
+local_steps: 2
+batch_size: 128
+model: ncf
+model_params:
+  num_users: 6040
+  num_items: 3952
+  embedding_dim: 32
+rounds: 30
+eval_every: 3
+epsilon: 6.0
+delta_exp: 1.1
+C: 0.5
+tau: 1e-4
+rank_k: 32
+trace_budget_B_per_d: 1.0
+pmu_every: 20
+pmu_sigma_sum: 0.2
+pmu_C_S: 1.0
+a: 0.2
+b: 1.0
+seed: 42
+fairness:
+  enabled: false
+alpha_dirichlet: 10.0
+lr: 0.05
+momentum: 0.9
+weight_decay: 0.0005
+warmstart_central_epochs: 1
+warmstart_batch_size: 256

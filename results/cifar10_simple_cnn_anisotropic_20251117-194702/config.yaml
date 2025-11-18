@@ -1,0 +1,29 @@
+experiment_name: cifar10_simple_cnn_anisotropic
+task: cifar10
+model: simple_cnn
+num_clients: 10
+clients_per_round_q: 0.5
+local_steps: 2
+rounds: 30
+eval_every: 3
+batch_size: 128
+alpha_dirichlet: 10.0
+seed: 42
+lr: 0.05
+momentum: 0.9
+weight_decay: 5e-4
+warmstart_central_epochs: 5
+warmstart_batch_size: 256
+epsilon: 8.0
+delta_exp: 2.0
+C: 1.5
+tau: 1e-3
+rank_k: 32
+trace_budget_B_per_d: 1.5
+pmu_every: 20
+pmu_sigma_sum: 0.5
+pmu_C_S: 2.0
+a: 0.2
+b: 1.0
+fairness:
+  enabled: false

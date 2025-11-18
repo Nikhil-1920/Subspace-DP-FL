@@ -1,0 +1,29 @@
+experiment_name: emnist_anisotropic
+task: emnist
+num_clients: 10
+clients_per_round_q: 0.05
+local_steps: 1
+batch_size: 32
+model: emnist_cnn
+rounds: 30
+eval_every: 3
+epsilon: 8.0
+delta_exp: 1.1
+C: 1.5
+tau: 1e-3
+rank_k: 32
+trace_budget_B_per_d: 1.5
+pmu_every: 25
+pmu_sigma_sum: 0.8
+pmu_C_S: 2.5
+a: 0.2
+b: 1.0
+alpha_dirichlet: 0.5
+seed: 42
+fairness:
+  enabled: false
+lr: 0.05
+momentum: 0.9
+weight_decay: 0.0005
+warmstart_central_epochs: 1
+warmstart_batch_size: 256
