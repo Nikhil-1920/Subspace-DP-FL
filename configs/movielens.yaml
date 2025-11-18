@@ -1,13 +1,13 @@
 experiment_name: movielens_anisotropic
 task: movielens
-num_clients: 10 # A subset of total users for faster simulation
+num_clients: 10         # A subset of total users for faster simulation
 clients_per_round_q: 0.05
 local_steps: 2
 batch_size: 128
 model: ncf
 model_params:
-  num_users: 6040 # From ML-1M dataset
-  num_items: 3952 # From ML-1M dataset
+  num_users: 6040       # From ML-1M dataset
+  num_items: 3952       # From ML-1M dataset
   embedding_dim: 32
 rounds: 30
 eval_every: 3
