@@ -275,10 +275,6 @@ We welcome contributions! Areas of interest:
 }
 ```
 
-## 📄 License
-
-This project is licensed under the MIT License - see LICENSE file for details.
-
 ## 🙏 Acknowledgments
 
 - Differential privacy techniques inspired by [Abadi et al., 2016]
